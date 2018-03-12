@@ -6,6 +6,7 @@ import android.app.AppOpsManager;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -90,14 +91,23 @@ public class MainActivity extends Activity implements LocationListener {
         return (networkInfo != null && networkInfo.isConnected());
     }
     public void checkDataUsages() {
-
+        SharedPreferences sp = getSharedPreferences("DataUsage",MODE_PRIVATE);
+        dataUsage.setText("Total Data "+String.valueOf(sp.getFloat("latest_stx",TrafficMonitorActivity.latest_stx)+" " +
+                "Moble Data "+String.valueOf(sp.getFloat("latest_smtx",TrafficMonitorActivity.latest_smtx))+" "+
+                "WifiData "+ String.valueOf(sp.getFloat("latest_swtx",TrafficMonitorActivity.latest_swtx))));
     }
 
 
 
     public void locationBtn(View view) {
         //onLocationChanged(location);
-        startActivity(new Intent(MainActivity.this,TrafficMonitorActivity.class));
+        //startActivity(new Intent(MainActivity.this,TrafficMonitorActivity.class));
+        checkDataUsages();
+
+    }
+
+    public void apibtn(View view) {
+        startActivity(new Intent(MainActivity.this,APITestActivity.class));
     }
 
     @Override
@@ -133,4 +143,6 @@ public class MainActivity extends Activity implements LocationListener {
     public void onProviderDisabled(String s) {
 
     }
+
+
 }

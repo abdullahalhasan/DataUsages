@@ -1,6 +1,7 @@
 package com.appeteria.introsliderexample;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,11 +38,35 @@ public class TrafficMonitorActivity extends Activity {
     TextView delta_wrx;
     TextView delta_wtx;
 
+
+    //Strings for Shared Preference;
+
+    public static long latest_stx;
+    long latest_srx;
+    public static long latest_smtx;
+    long latest_smrx;
+    public static long latest_swtx;
+    long latest_swrx;
+    long previous_stx;
+    long previous_srx;
+    long previous_smtx;
+    long previous_smrx;
+    long previous_swtx;
+    long previous_swrx;
+    long delta_stx;
+    long delta_srx;
+    long delta_smtx;
+    long delta_smrx;
+    long delta_swtx;
+    long delta_swrx;
+
     //Created Class TrafficSnapshot
     TrafficSnapshot latest;
     TrafficSnapshot previous;
 
-    
+    SharedPreferences sp;
+    SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,46 +97,84 @@ public class TrafficMonitorActivity extends Activity {
         delta_wtx = (TextView) findViewById(R.id.delta_wtx);
         //takeSnapshot(null);
 
+        editor = getSharedPreferences("DataUsageInfo",MODE_PRIVATE).edit();
+        sp = getSharedPreferences("DataUsagesInfo",MODE_PRIVATE);
+
     }
 
     public void takeSnapshot(View view) {
         previous = latest;
         latest = new TrafficSnapshot(this);
 
-        //Total Data Usages
-        latest_rx.setText(String.valueOf(latest.device.rx));
-        latest_tx.setText(String.valueOf(latest.device.tx));
+        latest_srx = latest.device.rx;
+        latest_stx = latest.device.tx;
+        latest_smtx = latest.device.mtx;
+        latest_smrx = latest.device.mrx;
+        latest_swtx = latest.device.wtx;
+        latest_swrx = latest.device.wrx;
 
+        //new
+        latest_stx = latest_stx + latest_srx;
+        latest_smtx = latest_smtx + latest_smrx;
+        latest_swtx = latest_swtx + latest_swrx;
+
+        //Save in Shared Preferences
+        editor.putLong("latest_srx",latest_srx);
+        editor.putLong("latest_stx",latest_stx);
+        editor.putLong("latest_smrx",latest_smrx);
+        editor.putLong("latest_smtx",latest_smtx);
+        editor.putLong("latest_swrx",latest_swrx);
+        editor.putLong("latest_swtx",latest_swtx);
+        editor.apply();
+        editor.commit();
+        //Total Data Usages
+        if (latest_srx != 0) {
+            latest_rx.setText(String.valueOf(sp.getFloat("latext_srx", latest_srx)));
+            latest_tx.setText(String.valueOf(sp.getFloat("latext_stx", latest_stx)));
+        }
         //Mobile Data Usages
-        latest_mrx.setText(String.valueOf(latest.device.mrx));
-        latest_mtx.setText(String.valueOf(latest.device.mtx));
+        latest_mrx.setText(String.valueOf(sp.getFloat("latext_smrx", latest_smrx)));
+        latest_mtx.setText(String.valueOf(sp.getFloat("latext_smtx", latest_smtx)));
 
         //Wi-Fi Data Usages
-        latest_wrx.setText(String.valueOf(latest.device.wrx));
-        latest_wtx.setText(String.valueOf(latest.device.wtx));
+        latest_wrx.setText(String.valueOf(latest_swrx));
+        latest_wtx.setText(String.valueOf(latest_swtx));
 
         if (previous != null) {
 
-            //Total Data Usages
-            previous_rx.setText(String.valueOf(previous.device.rx));
-            previous_tx.setText(String.valueOf(previous.device.tx));
+            previous_stx = previous.device.tx;
+            previous_srx = previous.device.rx;
+            previous_smtx = previous.device.mtx;
+            previous_smrx = previous.device.mrx;
+            previous_swtx = previous_smtx;
+            previous_swrx = previous_smrx;
+            delta_stx = latest.device.tx - previous.device.tx;
+            delta_srx = latest.device.rx - previous.device.rx;
+            delta_smtx = latest.device.mtx - previous.device.mtx;
+            delta_smrx = latest.device.mrx - previous.device.mrx;
+            delta_swtx = latest.device.wtx - previous.device.wtx;
+            delta_swrx = latest.device.wrx - previous.device.wrx;
 
-            delta_rx.setText(String.valueOf(latest.device.rx - previous.device.rx));
-            delta_tx.setText(String.valueOf(latest.device.tx - previous.device.tx));
+            //Total Data Usages
+            previous_rx.setText(String.valueOf(previous_srx));
+            previous_tx.setText(String.valueOf(previous_stx));
+
+            delta_rx.setText(String.valueOf(delta_srx));
+            delta_tx.setText(String.valueOf(delta_stx));
 
             //Mobile Data Usages
-            previous_mrx.setText(String.valueOf(previous.device.mrx));
-            previous_mtx.setText(String.valueOf(previous.device.mtx));
+            previous_mrx.setText(String.valueOf(previous_smrx));
+            previous_mtx.setText(String.valueOf(previous_smtx));
 
-            delta_mrx.setText(String.valueOf(latest.device.mrx - previous.device.mrx));
-            delta_mtx.setText(String.valueOf(latest.device.mtx - previous.device.mtx));
+            delta_mrx.setText(String.valueOf(delta_smrx));
+            delta_mtx.setText(String.valueOf(delta_smtx));
 
             //Wi-Fi Data Usages
-            previous_wrx.setText(String.valueOf(previous.device.wrx));
-            previous_wtx.setText(String.valueOf(previous.device.wtx));
+            previous_wrx.setText(String.valueOf(previous_swrx));
+            previous_wtx.setText(String.valueOf(previous_swtx));
 
-            delta_wrx.setText(String.valueOf(latest.device.wrx - previous.device.wrx));
-            delta_wtx.setText(String.valueOf(latest.device.wtx - previous.device.wtx));
+            delta_wrx.setText(String.valueOf(delta_swrx));
+            delta_wtx.setText(String.valueOf(delta_swtx));
 
 
         }
@@ -136,6 +199,10 @@ public class TrafficMonitorActivity extends Activity {
         }
 
 
+
+    }
+
+    private void saveInSP() {
 
     }
 
