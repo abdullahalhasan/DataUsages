@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "959096047532",
+    "firebase_url": "https://sliderintro.firebaseio.com",
+    "project_id": "sliderintro",
+    "storage_bucket": "sliderintro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959096047532:android:97ab1aaba315afae",
+        "android_client_info": {
+          "package_name": "com.appeteria.introsliderexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "959096047532-hv9p53fsm3oec6om43d1hd16fv33h20m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appeteria.introsliderexample",
+            "certificate_hash": "97e15574f657bbb60e930dd0f0169c48166dccba"
+          }
+        },
+        {
+          "client_id": "959096047532-1hl3f4g71rk0bhn05mm0dsb8b9sq3ono.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1aGJ1qfAfd-r5r1TtCuQVeRBnR4y9Kn8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "959096047532-1hl3f4g71rk0bhn05mm0dsb8b9sq3ono.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

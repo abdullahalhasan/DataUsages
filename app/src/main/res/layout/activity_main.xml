@@ -20,10 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="145dp"
-        android:layout_marginStart="145dp"
-        android:layout_marginTop="103dp"
+        android:layout_below="@+id/button"
+        android:layout_marginTop="58dp"
         android:text="Location: " />
 
     <TextView
@@ -32,10 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="188dp"
-        android:layout_marginStart="188dp"
-        android:layout_marginTop="445dp"
+        android:layout_below="@+id/locationTextView"
+        android:layout_marginTop="37dp"
         android:text="Data Usage :" />
 
     <Button
@@ -45,22 +41,34 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="133dp"
-        android:layout_marginStart="133dp"
-        android:layout_marginTop="251dp"
-        android:onClick="locationBtn"
-        android:text="Button" />
+        android:onClick="dataUsageBtn"
+        android:text="Data Usage" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="126dp"
-        android:layout_marginStart="126dp"
-        android:layout_marginTop="377dp"
+        android:layout_centerHorizontal="true"
         android:onClick="apibtn"
         android:text="API Testing" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:onClick="checkDataUsage"
+        android:text="Fetch Data" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Firebase" />
 </RelativeLayout>

@@ -50,7 +50,7 @@ public class APITestActivity extends AppCompatActivity {
 
     public void uploadBTN(View view) {
 
-        locationUpdate();
+
 
     }
 

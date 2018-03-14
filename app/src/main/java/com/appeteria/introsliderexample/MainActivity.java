@@ -30,7 +30,7 @@ import java.util.Locale;
 
 import static android.app.AppOpsManager.MODE_ALLOWED;
 
-public class MainActivity extends Activity implements LocationListener {
+public class MainActivity extends Activity {
 
     TextView locationTV;
     TextView dataUsage;
@@ -99,7 +99,7 @@ public class MainActivity extends Activity implements LocationListener {
 
 
 
-    public void locationBtn(View view) {
+    public void checkDataUsage(View view) {
         //onLocationChanged(location);
         //startActivity(new Intent(MainActivity.this,TrafficMonitorActivity.class));
         checkDataUsages();
@@ -110,39 +110,9 @@ public class MainActivity extends Activity implements LocationListener {
         startActivity(new Intent(MainActivity.this,APITestActivity.class));
     }
 
-    @Override
-    public void onLocationChanged(Location location) {
 
-        List<Address> addresses = null;
-        try {
-            double lat = location.getLatitude();
-            double lon = location.getLongitude();
-            addresses = geocoder.getFromLocation(lat,lon,1);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String area = addresses.get(0).getAddressLine(1);
-        String area2 = addresses.get(0).getSubLocality();
-        String city = addresses.get(0).getLocality();
-        String admin = addresses.get(0).getAdminArea();
-        String country = addresses.get(0).getCountryName();
-        locationTV.setText(area2+", "+ city +", "+ admin +", "+country);
+
+    public void dataUsageBtn(View view) {
+        startActivity(new Intent(MainActivity.this,TrafficMonitorActivity.class));
     }
-
-    @Override
-    public void onStatusChanged(String s, int i, Bundle bundle) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String s) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(String s) {
-
-    }
-
-
 }

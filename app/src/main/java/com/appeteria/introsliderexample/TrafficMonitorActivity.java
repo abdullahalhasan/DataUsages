@@ -2,7 +2,6 @@ package com.appeteria.introsliderexample;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -175,8 +174,6 @@ public class TrafficMonitorActivity extends Activity {
 
             delta_wrx.setText(String.valueOf(delta_swrx));
             delta_wtx.setText(String.valueOf(delta_swtx));
-
-
         }
 
         ArrayList<String> log = new ArrayList<>();
