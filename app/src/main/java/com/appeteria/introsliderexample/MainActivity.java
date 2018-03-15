@@ -115,4 +115,8 @@ public class MainActivity extends Activity {
     public void dataUsageBtn(View view) {
         startActivity(new Intent(MainActivity.this,TrafficMonitorActivity.class));
     }
+
+    public void firebaseNoti(View view) {
+        startActivity(new Intent(MainActivity.this,FireActivity.class));
+    }
 }
