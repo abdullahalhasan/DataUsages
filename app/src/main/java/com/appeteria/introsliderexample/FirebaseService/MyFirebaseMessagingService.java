@@ -23,9 +23,7 @@ import org.json.JSONObject;
 
 import static android.content.ContentValues.TAG;
 
-/**
- * Created by BDDL-102 on 3/14/2018.
- */
+
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 

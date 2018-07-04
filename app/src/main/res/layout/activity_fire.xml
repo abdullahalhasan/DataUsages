@@ -17,6 +17,11 @@
         android:textColor="@color/colorPrimary"
         android:textSize="26dp" />
 
+    <TextureView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        />
+
     <TextView
         android:id="@+id/txt_reg_id"
         android:layout_width="wrap_content"

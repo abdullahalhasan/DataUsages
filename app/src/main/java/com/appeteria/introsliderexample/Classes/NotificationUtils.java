@@ -22,9 +22,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by BDDL-102 on 3/14/2018.
- */
 
 public class NotificationUtils {
 

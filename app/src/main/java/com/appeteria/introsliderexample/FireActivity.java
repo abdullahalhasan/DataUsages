@@ -16,10 +16,14 @@ import android.widget.Toast;
 
 import com.appeteria.introsliderexample.Classes.Config;
 import com.appeteria.introsliderexample.Classes.NotificationUtils;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.w3c.dom.Text;
+
+import java.util.Random;
 
 public class FireActivity extends AppCompatActivity {
 
@@ -66,6 +70,10 @@ public class FireActivity extends AppCompatActivity {
             txtRegID.setText("Firebase Reg Id: "+regId);
         else
             txtRegID.setText(token);
+        Random random = new Random(5);
+        int a = random.nextInt();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child(String.valueOf(a)).setValue(token);
     }
 
     @Override

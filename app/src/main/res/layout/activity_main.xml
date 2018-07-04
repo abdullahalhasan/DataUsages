@@ -13,6 +13,12 @@
     android:background="#ffffff"
     tools:context="com.appeteria.introsliderexample.MainActivity">
 
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button"
+        android:onClick="cardviewClick"
+        android:layout_marginTop="50dp">
 
     <TextView
         android:id="@+id/locationTextView"
@@ -20,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/dataUsageTextView"
         android:layout_marginTop="58dp"
         android:text="Location: " />
 
@@ -33,13 +39,15 @@
         android:layout_below="@+id/locationTextView"
         android:layout_marginTop="37dp"
         android:text="Data Usage :" />
-
+    </android.support.v7.widget.CardView>
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
+        android:padding="10dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:background="@drawable/rounded_button"
         android:layout_alignParentTop="true"
         android:onClick="dataUsageBtn"
         android:text="Data Usage" />
@@ -72,4 +80,37 @@
         android:layout_alignParentStart="true"
         android:onClick="firebaseNoti"
         android:text="Firebase" />
+
+    <Button
+        android:id="@+id/locationPermission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/button4"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:onClick="gpsTesting"
+        android:layout_marginTop="7dp"
+        android:text="GPS" />
+
+    <Button
+        android:id="@+id/buttonPermission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button4"
+        android:layout_centerHorizontal="true"
+        android:onClick="permissionsTesting"
+        android:text="Permission" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:onClick="login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonPermission"
+        android:layout_alignLeft="@+id/locationPermission"
+        android:layout_alignStart="@+id/locationPermission"
+        android:layout_marginBottom="19dp"
+        android:text="Login" />
 </RelativeLayout>

@@ -3,9 +3,6 @@ package com.appeteria.introsliderexample;
 import android.net.TrafficStats;
 import android.support.v4.net.TrafficStatsCompat;
 
-/**
- * Created by BDDL-102 on 3/8/2018.
- */
 
 public class TrafficRecord {
 

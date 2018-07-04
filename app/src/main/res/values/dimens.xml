@@ -13,4 +13,6 @@
     <dimen name="slide_desc">16sp</dimen>
     <dimen name="desc_padding">40dp</dimen>
     <dimen name="margin_right">20dp</dimen>
+    <dimen name="corner_dimen">30dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

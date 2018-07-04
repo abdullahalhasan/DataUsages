@@ -96,6 +96,17 @@
             android:textSize="20sp" />
     </TableRow>
 
+
+
+
+    <!--Mobile Data Information In Bytes -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Mobile Data Usage!"
+        android:textSize="30sp"
+        android:textStyle="bold" />
     <TableRow>
 
         <TextView
@@ -109,15 +120,6 @@
             android:textSize="20sp" />
     </TableRow>
 
-
-    <!--Mobile Data Information In Bytes -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Mobile Data Usage!"
-        android:textSize="30sp"
-        android:textStyle="bold" />
 
     <TableRow>
 
@@ -190,6 +192,19 @@
         android:text="@string/wi_fi_data_usage"
         android:textSize="30sp"
         android:textStyle="bold" />
+
+    <TableRow>
+
+        <TextView
+            android:layout_column="1"
+            android:text="@string/received"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_column="1"
+            android:text="@string/sent"
+            android:textSize="20sp" />
+    </TableRow>
 
     <TableRow>
 
