@@ -94,7 +94,7 @@ public class MainActivity extends Activity implements ForceUpdateChecker.OnUpdat
         }
         location = locationManager.getLastKnownLocation(locationProvider);
         geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
-        
+
     }
 
     public boolean isOnline() {
